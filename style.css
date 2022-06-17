@@ -1,11 +1,21 @@
+/*
+ * TODO:
+ * - Koko ei saa mukautua, sillä palluroiden paikat eivät saa muuttua.
+ */
 body {
-    background-color: rebeccapurple;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: 100vh;
+    width: 100vw;
 }
 
-#A, #B {
+.solmu {
+    height: 10em;
+    width: 10em;
+
+    position: absolute;
+    border: solid black 1px;
+}
+
+/* #A, #B {
     height: 100px;
     width: 100px;
     background-color: black;
@@ -16,4 +26,4 @@ body {
     height: 100px;
     width: 5px;
     background-color: black;
-}
+} */
