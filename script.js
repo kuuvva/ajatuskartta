@@ -3,6 +3,9 @@
 // joten kysytään varmistus.
 // window.addEventListener("beforeunload", e => e.preventDefault());
 const idType = "id";
+
+let ctrlClickListener = () => {};
+
 window.onload = function(e) {
     solmu(100, 100);
     // solmu(0, 0)
@@ -11,6 +14,8 @@ window.onload = function(e) {
         e.preventDefault();
     });
 }
+
+window.addEventListener("dblclick",  clickEvent => solmu(clickEvent.pageX-50, clickEvent.pageY-50));
 
 /**
  * Luodaan solmuelementti annettuun sijaintiin
@@ -29,11 +34,10 @@ function solmu(posX, posY) {
     solmu.style.left = posX + "px";
     solmu.style.top = posY + "px";
 
-    // Solmu raahaus
+    // Solmun raahaus
     solmu.setAttribute("draggable", true);
     solmu.addEventListener("dragstart", function(e) {
         e.dataTransfer.effectAllowed = "move";
-        e.dataTransfer.setData(idType, solmu.id);
         e.dataTransfer.setData("x", e.offsetX);
         e.dataTransfer.setData("y", e.offsetY);
     });
